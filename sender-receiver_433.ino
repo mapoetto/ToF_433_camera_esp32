@@ -285,6 +285,11 @@ void loop() {
     Serial.print("Distanza: ");
     Serial.print(measure.RangeMilliMeter);
     Serial.println(" mm");
+
+    if(measure.RangeMilliMeter<60){
+        sendCode(A_On);
+    }
+
   } else {
     Serial.println("Fuori portata");
   }
@@ -292,5 +297,6 @@ void loop() {
   delay(500);
 
     // Handle incoming serial commands
-    processSerial();
+    //processSerial();
+
 }
